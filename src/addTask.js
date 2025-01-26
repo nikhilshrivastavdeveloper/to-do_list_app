@@ -1,5 +1,9 @@
-
 function addTask(para) {
+    if(para === ""){
+        alert("Please Enter Valid Input")
+        return
+    }
+
     let allTask = localStorage.getItem("todoTask");
 
     //check that todoTask key exist in localStorage or not if not exist to initialize
@@ -14,20 +18,4 @@ function addTask(para) {
     }
 }
 
-function ValidateTask(para) {
-    let regex = /^[a-zA-Z0-9\s\-\,\_\.]+$/;
-    let testing1 = regex.test(para);
-    let testing2 = Number(para); // if user task successfully convert into number mean its invalid task
-
-    //true and NaN -> if execute
-    if (testing1 && !testing2) {
-        addTask(para)
-    }
-    else {
-        alert("Please Enter Valid Task")
-        return;
-    }
-}
-
-
-export {ValidateTask};
+export {addTask};

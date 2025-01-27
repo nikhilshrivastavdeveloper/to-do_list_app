@@ -12,7 +12,7 @@ function updateTask(id) {
     }
 
     //check that user input is not a null and empty string
-    if (newInput) {
+    if (newInput !== "" && newInput !== null) {
         let allTask = localStorage.getItem("todoTask");
         let convertIntoReadableFormat = JSON.parse(allTask);
         convertIntoReadableFormat[id] = newInput;

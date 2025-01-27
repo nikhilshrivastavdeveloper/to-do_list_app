@@ -2,7 +2,7 @@ import { showAllTask } from "./ui.js";
 
 function updateTask(id) {
     let newInput = prompt("Update Your Task");
-    let regex = /^\d+$/;
+    let regex = /^[0-9\s]+$/;
     let test = regex.test(newInput);
 
     //check that user enter only valid input not number
@@ -19,7 +19,6 @@ function updateTask(id) {
         localStorage.setItem("todoTask",JSON.stringify(convertIntoReadableFormat))
         showAllTask()
     }
-
 }
 
 export { updateTask }

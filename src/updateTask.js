@@ -1,7 +1,7 @@
 import { showAllTask } from "./ui.js";
 
 function updateTask(id) {
-    let newInput = prompt("Update Your Task"); //null or ""->falsy value
+    let newInput = prompt("Update Your Task");
     let regex = /^\d+$/;
     let test = regex.test(newInput);
 

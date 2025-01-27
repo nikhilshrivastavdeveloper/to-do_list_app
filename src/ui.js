@@ -1,5 +1,6 @@
 import { addTask } from "./addTask.js";
 import { deleteTask } from "./removeTask.js";
+import { updateTask } from "./updateTask.js";
 
 let taskContainer = document.querySelector("#Task-Container");
 let from = document.querySelector("#taskForm");
@@ -49,6 +50,17 @@ function manageTask(event) {
     if (event.target.tagName === "BUTTON" && event.target.className === "Delete") {
         let text = event.target.parentElement.firstElementChild.innerHTML;
         deleteTask(text);
+    }
+
+    //update task
+    if (event.target.tagName === "I" && event.target.parentElement.className === "Update") {
+        let listID = event.target.parentElement.parentElement.id;
+        updateTask(listID)
+    }
+
+    if (event.target.tagName === "BUTTON" && event.target.className === "Update") {
+        let listID = event.target.parentElement.id;
+        updateTask(listID)
     }
 
 }

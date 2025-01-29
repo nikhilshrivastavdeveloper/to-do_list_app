@@ -18,4 +18,22 @@ function addTask(para) {
     }
 }
 
-export {addTask};
+function validateTask(para){
+    let regex = /^[\d\s]+$/;
+    let testing = regex.test(para);
+
+    if(testing){
+        alert("Please Enter Valid Input Only Number Not Accepted")
+        return false
+    }
+
+    if(para.length > 30){
+        alert("Task Cannot be more than 30 characters!")
+        return false
+    }
+
+    //return true if every thing is true
+    return true
+}
+
+export {addTask,validateTask};

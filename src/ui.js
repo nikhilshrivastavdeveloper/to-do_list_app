@@ -1,4 +1,4 @@
-import { addTask } from "./addTask.js";
+import { addTask, validateTask} from "./addTask.js";
 import { deleteTask } from "./removeTask.js";
 import { updateTask } from "./updateTask.js";
 
@@ -35,7 +35,7 @@ function showAllTask() {
         })
     }
     else {
-        taskContainer.innerHTML = "<h3>No tasks found! Add a new task to your list</h3>";
+        taskContainer.innerHTML = "<h2>No tasks found! Add a new task to your list</h2>";
     }
 }
 
@@ -69,7 +69,10 @@ window.addEventListener("load", showAllTask);
 
 from.addEventListener("submit", (e) => {
     e.preventDefault()
-    addTask(input.value.trim());
+    let res = validateTask(input.value.trim())
+    if(res){
+        addTask(input.value.trim());
+    }
     showAllTask();
     from.reset()
 })

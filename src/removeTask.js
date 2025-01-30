@@ -1,10 +1,9 @@
 import { showAllTask } from "./ui.js";
 
-function deleteTask(para){
+function deleteTask(id){
     let allTask = localStorage.getItem("todoTask");
     let convertIntoReadableFormat = JSON.parse(allTask);
-    let index = convertIntoReadableFormat.indexOf(para);
-    convertIntoReadableFormat.splice(index,1);
+    convertIntoReadableFormat.splice(id,1);
     localStorage.setItem("todoTask",JSON.stringify(convertIntoReadableFormat));
     showAllTask()
 }

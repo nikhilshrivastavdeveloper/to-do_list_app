@@ -1,15 +1,9 @@
 function addTask(para) {
-    if(para === ""){
-        alert("Please Enter Valid Input")
-        return
-    }
-
     let allTask = localStorage.getItem("todoTask");
 
     //check that todoTask key exist in localStorage or not if not exist to initialize
     if(!allTask){
-        let taskArr = [];
-        taskArr.push(para)
+        let taskArr = [para];
         localStorage.setItem("todoTask",JSON.stringify(taskArr));
     }else{
         let parse = JSON.parse(allTask);
@@ -21,6 +15,12 @@ function addTask(para) {
 function validateTask(para){
     let regex = /^[\d\s]+$/;
     let testing = regex.test(para);
+
+    //input not a empty string
+    if(para === ""){
+        alert("Please Enter Valid Input")
+        return
+    }
 
     if(testing){
         alert("Please Enter Valid Input Only Number Not Accepted")

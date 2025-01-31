@@ -4,8 +4,9 @@ let voiceBtn = document.getElementById("voice");
 
 function voiceCommand() {
     if (("webkitSpeechRecognition" in window) || ("SpeechRecognition" in window)) {
+        input.placeholder = "Start Speaking..." //placeholder change indicate user that now they should start speaking
         let voice = new (window.webkitSpeechRecognition || window.SpeechRecognition)()
-
+       
         //set some setting for their voice command
         voice.continuous = false;
         voice.lang = "en-US";
@@ -17,12 +18,12 @@ function voiceCommand() {
         //extract text from speech object
         voice.onresult = (e) => {
             input.value = e.results[0][0].transcript;
-
         }
 
         //speech end
         voice.onspeechend = () => {
             voice.stop();
+            input.placeholder = "Enter Your Task..."//set previous placeholder again
         }
     }
     else {
@@ -31,4 +32,6 @@ function voiceCommand() {
 }
 
 //event add on microphone button
-voiceBtn.addEventListener("click", voiceCommand);
+voiceBtn.addEventListener("click", () => {
+    voiceCommand()
+});

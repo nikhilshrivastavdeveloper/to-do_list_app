@@ -4,6 +4,7 @@ let voiceBtn = document.getElementById("voice");
 
 function voiceCommand() {
     if (("webkitSpeechRecognition" in window) || ("SpeechRecognition" in window)) {
+        input.value = "";
         input.placeholder = "Start Speaking..." //placeholder change indicate user that now they should start speaking
         let voice = new (window.webkitSpeechRecognition || window.SpeechRecognition)()
        

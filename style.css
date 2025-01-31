@@ -15,6 +15,21 @@ body {
     align-items: center;
 }
 
+#voice{
+    /* padding: 10px; */
+    border-radius: 50%;
+    height:50px;
+    width:50px;
+    font-size: 18px;
+    border: none;
+    background-color: red;
+    color:white;
+    position: absolute;
+    z-index:2;
+    top:4px;
+    right:10px;
+}
+
 h1,
 #taskForm,
 #Task-Container {
@@ -48,6 +63,9 @@ form button {
     width: 60%;
     display: flex;
     justify-content: center;
+    /* border:2px solid red;
+    height: 500px;
+    overflow-y: auto; */
 }
 
 #Task-Container h2 {
@@ -96,6 +114,13 @@ ul li button.Delete {
 
 /* responsive css code*/
 @media screen and (max-width:576px) {
+
+    #voice{
+        height:35px;
+        width:35px;
+        font-size: 16px;
+        top:10px;
+    }
 
     h1,
     #taskForm,

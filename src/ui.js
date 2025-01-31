@@ -34,7 +34,7 @@ function showAllTask() {
             removeBtn.classList.add("Delete");
             li.appendChild(removeBtn)
 
-            unorderList.appendChild(li)//li append into ul
+            unorderList.prepend(li)//li append into ul
         })
     }
     else {

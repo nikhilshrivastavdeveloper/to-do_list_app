@@ -24,6 +24,10 @@ body {
     background-color: red;
     color: white;
     margin-top: 5px;
+    position: absolute;
+    z-index:2;
+    top:5px;
+    right:10px;
 }
 
 
@@ -57,8 +61,7 @@ form button {
 }
 
 #Task-Container {
-    height:74vh;
-    /* border:2px solid red; */
+    height:81vh;
     width: 60%;
     display: flex;
     justify-content: center;

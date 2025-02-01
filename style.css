@@ -23,9 +23,6 @@ body {
     border: none;
     background-color: red;
     color: white;
-    position: absolute;
-    z-index: 2;
-    bottom:2px;
 }
 
 

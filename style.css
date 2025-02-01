@@ -25,15 +25,14 @@ body {
     color: white;
     position: absolute;
     z-index: 2;
-    top: 4px;
-    right: 10px;
+    bottom:2px;
 }
 
 
 h1,
 #taskForm,
 #Task-Container {
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 form {
@@ -60,9 +59,16 @@ form button {
 }
 
 #Task-Container {
+    height:74vh;
+    /* border:2px solid red; */
     width: 60%;
     display: flex;
     justify-content: center;
+    overflow-y: auto;
+}
+
+#Task-Container::-webkit-scrollbar {
+    display: none;
 }
 
 #Task-Container h2 {

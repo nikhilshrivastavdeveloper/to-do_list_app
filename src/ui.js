@@ -1,4 +1,4 @@
-import { addTask, validateTask} from "./addTask.js";
+import { addTask, validateTask } from "./addTask.js";
 import { deleteTask } from "./removeTask.js";
 import { updateTask } from "./updateTask.js";
 
@@ -23,7 +23,7 @@ function showAllTask() {
             let li = document.createElement("li");
             li.innerHTML = `<span>${singalValue}</span>`;
             li.setAttribute("id", index)
-            
+
             let updateBtn = document.createElement("button");
             updateBtn.innerHTML = '<i class="fa-solid fa-pencil"></i>';
             updateBtn.classList.add("Update");
@@ -34,8 +34,13 @@ function showAllTask() {
             removeBtn.classList.add("Delete");
             li.appendChild(removeBtn)
 
-            unorderList.prepend(li)//li append into ul
+            unorderList.appendChild(li)//li append into ul
         })
+
+        //auto-scroll
+        if (taskContainer.scrollHeight > taskContainer.clientHeight) {
+            taskContainer.scroll({ top: taskContainer.scrollHeight, behavior: "smooth" })
+        }
     }
     else {
         taskContainer.innerHTML = "<h2>Start Adding new task in your list</h2>";
@@ -59,13 +64,13 @@ function manageTask(event) {
     if (event.target.tagName === "I" && event.target.parentElement.className === "Update") {
         let text = event.target.parentElement.previousElementSibling.innerText;
         let listID = event.target.parentElement.parentElement.id;
-        updateTask(listID,text)
+        updateTask(listID, text)
     }
 
     if (event.target.tagName === "BUTTON" && event.target.className === "Update") {
         let text = event.target.previousElementSibling.innerText;
         let listID = event.target.parentElement.id;
-        updateTask(listID,text)
+        updateTask(listID, text)
     }
 
 }
@@ -76,7 +81,7 @@ from.addEventListener("submit", (e) => {
     e.preventDefault()
     let userInput = input.value.trim()
     let res = validateTask(userInput)
-    if(res){
+    if (res) {
         addTask(userInput);
     }
     showAllTask();
@@ -87,4 +92,4 @@ taskContainer.addEventListener("click", (e) => {
     manageTask(e)
 });
 
-export {showAllTask}
+export { showAllTask }
